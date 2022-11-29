@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">FoodOrderApp</string>
+    <string name="name">Name</string>
+    <string name="amp"><![CDATA[&]]></string>
+    <string name="price">Price</string>
+    <string name="description">Description</string>
+    <string name="cheese_burger">Cheese Burger</string>
+    <string name="order_number">Order Number</string>
+    <string name="food_name">Food Name</string>
+    <string name="DescriptionFood">Meaty potobello mushrooms make for the perfect vegetarian burger</string>
+    <string name="_03098393995">03098393995</string>
+    <string name="_15">15</string>
+    <string name="ordernow">OrderNow</string>
+    <string name="order_now">Order Now</string>
+    <string name="_30">30</string>
+    <string name="_100">100</string>
+</resources>
