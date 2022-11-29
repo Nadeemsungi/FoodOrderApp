@@ -1,10 +1,14 @@
 package com.example.foodorderapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.example.foodorderapp.Adapters.RecipeAdapter;
 import com.example.foodorderapp.Models.RecipeModel;
@@ -35,5 +39,22 @@ public class FoodOrderList extends AppCompatActivity {
 
         LinearLayoutManager layoutManager=new LinearLayoutManager(this);
         binding.recyclerView.setLayoutManager(layoutManager);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId())
+        {
+            case R.id.menuOrders:
+                startActivity(new Intent(FoodOrderList.this,ActivityForOders.class));
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

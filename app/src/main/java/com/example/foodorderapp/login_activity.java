@@ -21,7 +21,6 @@ public class login_activity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         login=(Button) findViewById(R.id.btn4forlogin);
         txt_login=(TextView) findViewById(R.id.txtlogin);
-        Arzi=(TextView) findViewById(R.id.arzi);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -36,14 +35,6 @@ public class login_activity extends AppCompatActivity {
                 Intent n=new Intent(login_activity.this,signup.class);
                 startActivity(n);
                 Toast.makeText(login_activity.this, "Move to SignUp activity", Toast.LENGTH_SHORT).show();
-            }
-        });
-        Arzi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent d=new Intent(login_activity.this,ActivityForOders.class);
-                startActivity(d);
-                Toast.makeText(login_activity.this, "Move to 2nd RecyclerView activity", Toast.LENGTH_SHORT).show();
             }
         });
         getSupportActionBar().hide();

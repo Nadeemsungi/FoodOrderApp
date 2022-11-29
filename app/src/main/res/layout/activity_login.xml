@@ -96,7 +96,7 @@
 
                         <TextView
                             android:id="@+id/arzi"
-                            android:layout_width="37dp"
+                            android:layout_width="50dp"
                             android:layout_height="wrap_content"
                             android:text="Or With"
                             android:textColor="@color/black" />

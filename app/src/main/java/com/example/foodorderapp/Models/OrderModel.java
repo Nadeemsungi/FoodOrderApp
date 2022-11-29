@@ -4,7 +4,7 @@ public class OrderModel {
     int orderImage;
     String soldItemName,price,orderNumber;
 
-    public OrderModel(int orderImage, String soldItemName, String price, String orderNumber) {
+    public OrderModel() {
 
         this.orderImage = orderImage;
         this.soldItemName = soldItemName;

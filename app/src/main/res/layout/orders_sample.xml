@@ -91,7 +91,7 @@
                         android:layout_weight="1"
                         android:textStyle="bold"
                         android:textColor="@color/Red"
-                        android:text="&amp;" />
+                        android:text="@string/dollar" />
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

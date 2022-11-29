@@ -2,10 +2,15 @@ package com.example.foodorderapp.DataBaseClass;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+
+import com.example.foodorderapp.Models.OrderModel;
+
+import java.util.ArrayList;
 
 public class DBHelper extends SQLiteOpenHelper {
     final static String DBNAME ="mydatabase.db";
@@ -24,8 +29,8 @@ public class DBHelper extends SQLiteOpenHelper {
                         "price int," +
                         "quantity int," +
                         "image int," +
-                        "description text," +
-                        "foodname text)"
+                        "foodname text," +
+                        "description text)"
 
         );
 
@@ -36,7 +41,7 @@ public class DBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("DROP table if exists orders");
         onCreate(sqLiteDatabase);
     }
-    public boolean insertOrder (String name,String phone,int price,int image,String dec,String foodname,int quantity)
+    public boolean insertOrder (String name,String phone,int price,int image,String description,String foodname,int quantity)
     {
         SQLiteDatabase database=getReadableDatabase();
         ContentValues values=new ContentValues();
@@ -44,7 +49,7 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put("phone",phone);
         values.put("price",price);
         values.put("image",image);
-        values.put("Description",dec);
+        values.put("Description",description);
         values.put("foodname",foodname);
         values.put("quantity",quantity);
         long id = database.insert("orders",null,values);
@@ -55,6 +60,22 @@ public class DBHelper extends SQLiteOpenHelper {
             return true;
         }
     }
-
-
+    public ArrayList<OrderModel> getOrders(){
+        ArrayList<OrderModel> orders=new ArrayList<>();
+        SQLiteDatabase database=this.getWritableDatabase();
+        Cursor cursor=database.rawQuery("select id,description,image,price from orders",null);
+        if(cursor.moveToFirst()) {
+            while (cursor.moveToNext()) {
+                OrderModel model = new OrderModel();
+                model.setOrderNumber(cursor.getInt(0) + "");
+                model.setSoldItemName(cursor.getString(1));
+                model.setOrderImage(Integer.parseInt(cursor.getInt(2) + ""));
+                model.setPrice(cursor.getInt(3) + "");
+                orders.add(model);
+            }
+        }
+        cursor.close();
+        database.close();
+        return orders;
+    }
 }
